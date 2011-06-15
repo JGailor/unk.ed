@@ -1,0 +1,13 @@
+!!!
+%html
+  %head
+    %title Goliath Strong!
+  %body
+    %form{:action => "/add", :method => "POST"}
+      %label{:for => "unshortened_url"} URL
+      %input{:type => :text, :name => "unshortened_url"}
+      %input{:type => :submit}
+    %ul
+      - @urls.each do |url|
+        %li
+          %a{:href => url}= url
