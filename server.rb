@@ -8,7 +8,7 @@ class HomePage < Goliath::API
   def render_response(path)
     @urls = env.redis.lrange("urls", 0, -1).map {|url| "/b/#{url}"}
     
-    @Haml::Engine.new(File.open(path).read).render(self)
+    Haml::Engine.new(File.open(path).read).render(self)
   end
   
   def response(env)
